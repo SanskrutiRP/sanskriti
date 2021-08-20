@@ -4,7 +4,7 @@
 /*  width: 100%;*/
 }
 body{
-  background-color:rgba(0, 0, 0, 1.0); /*rgba(200, 200, 200, 0.3);*/
+  background-color:rgba(13, 13, 13, 1.0); /*rgba(200, 200, 200, 0.3);*/
   color:white;
   overflow: scroll;
 }
@@ -32,10 +32,10 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 0 1rem 0;
 }
 .header p{
   position: relative;
+  padding: 1rem 0;
 }
 .header p::after{
   content: '';
@@ -56,7 +56,7 @@ body{
 #close{
   position: absolute;
   right: .5rem;
-  top: .5rem;
+  top: 1rem;
   z-index: 2;
   padding: .5rem;
   cursor: pointer;
@@ -185,7 +185,7 @@ body{
 }
 .bio{
   position: absolute;
-  top: 76%;
+  top: 72%;
   left: 13.3%;
   width: 50%;
   padding: 0.6rem;
@@ -216,7 +216,7 @@ body{
   color: black;
   position: absolute;
   left: 13.3%;
-  top: 51%;
+  top: 45%;
   width: 50%;
   padding: 0.5rem;
   font-size: 40px;
@@ -545,13 +545,14 @@ ul{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 1rem;
+  /*grid-column-gap: 1rem;*/
 }
 .lang p,
 .frame p,
 .ide p{
   text-align: center;
   position: relative;
+  padding: 0;
   background: rgba(254, 254, 254, .1);
   border: 1px solid rgba(254, 254, 254, .2);
 }
@@ -572,7 +573,7 @@ ul{
   background-color: #05fb05;
 }
 .lang p:nth-child(1)::after{
-  content: '#include<C++>';
+  content: '#include <C++>';
 }
 .lang p:nth-child(2)::after{
   content: 'import java.*';
@@ -587,10 +588,10 @@ ul{
   content: '<HTML5>';
 }
 .lang p:nth-child(6)::after{
-  content: 'body{CSS3;}';
+  content: 'body {CSS3;}';
 }
 .lang p:nth-child(7)::after{
-  content: 'console.log(JavaScript)';
+  content: 'console. log (JavaScript)';
 }
 .lang p:hover::after,
 .frame p:hover::after,
@@ -633,7 +634,7 @@ ul{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 1rem;
+  /*grid-column-gap: 1rem;*/
 }
 .ide p:nth-child(1)::after{
   content: 'Android Studio';
@@ -717,8 +718,8 @@ ul{
   color: white;
 }
 .more{
-  position: absolute;
-  right: 10%;
+  position: relative;
+  left: 100%;
 }
 .more::after{
   content: '';
@@ -744,32 +745,67 @@ ul{
 .experience{
   position: absolute;
   left: 420vw;
-  width: 100vw;
+  top: 1%;
+  width: 90vw;
   height: 90vh;
   padding:1rem;
   display:flex;
-  border-bottom:1px solid white;
+  flex-direction: column;
+
+}
+.exp{
+  width: 70%;
+  padding: 1rem 2rem;
+  margin-left: 5%;
+  line-height: 2rem;
+  border-left:  1px solid rgba(254, 254, 254, .4);
+}
+.title{
+  font-size: 25px;
+  padding: 0 1rem;
+  letter-spacing: 1px;
+  line-height: 3rem;
+  background-color: white;
+  color: black;
+}
+.company{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, .7);
+  padding: 1rem 0;
+}
+.company p:nth-child(1){
+  font-size: 20px;
+}
+.desc{
+  padding: 1rem 0 0 0;
+  letter-spacing: .5px;
+  color: rgba(255, 255, 255, 1.0);
 }
 @media(max-width : 480px){
   .container{
     flex-direction: column;
+    height: 100%;
+    width: 100vw;
+    padding: 0;
   }
-  .me,
-  .about,
-  .skills,
-  .project,
-  .contact{
-    left: 0;
+  .modal{
+    width: 60%;
+    left: 15%;
+  }
+  .between{
     top: 0;
-   /* width: 0vw;*/
-    padding: 0rem 0rem 0rem 3rem;
-    overflow: hidden;
   }
-  .about,
-  .skills,
-  .project,
-  .contact{
-    display: none;
+  .between span:nth-child(1),
+  .between span:nth-child(3){
+    font-size: 30px;
+  }
+  .wrap{
+    padding-left: 15%;
+  }
+  .meTag{
+    padding-left: 12%;
   }
   .menu{
     width: 10%; 
@@ -783,28 +819,186 @@ ul{
     width: 30%;
   }
   .me{
-    width: 85%;
+    padding: 0;
+    width: 100%;
   }
-  .me h1{
-    font-size: 30px;
+  .icon{
+    margin: 0;
+    padding: .5rem;
+  }
+  .tooltip{
+    font-size: 10px;
+    padding: .5rem 1rem;
+  }
+  .tooltip::before{
+    left: 110%;
   }
   .me h3{
-    font-size: 30px;
+    font-size: 25px;
   }
   .myself{
-    font-size: 30px;
+    font-size: 40px;
   }
-  .abtme span::after{
-    display: none;
+  .abtme:hover .myself::after{
+    transform: scaleX(0);
   }
   .bio,
   .bio1{
     display: none;
   }
-  .between{
+  .about{
+    padding: 0;
+    top: 100vh;
+    left: 0vw !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  .abt_text{
+    padding: 1rem 2rem;
+    margin-left: 18%;
+    line-height: 30px;
+  }
+  .abt_text p{
+    font-size: 15px;
+  }
+  .skills{
+    left: 0;
+    top: 240vh;
+    width: 80vw;
+    margin-left: 14%;
+    padding: 0;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .skills .meTag{
+      padding-left: 0;
+  }
+  .skill_list{
+    width: 100%;
+    /*grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 0;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-row-gap: .5rem;
+    padding: 0 0 0 .5rem;
+  }
+  .lang,
+  .frame,
+  .ide{
+    grid-gap: 0;
+    padding: 0;
+  }
+  .lang p, 
+  .frame p,
+  .ide p{
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lang{
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .frame{
+   /* grid-column: 1/-1;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);*/
+    display: flex;
+  }
+  .ide{
+    grid-column: 1/-1;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+  .skills img{
+    transform: scale(.5);
+  }
+  .project{
+    top: 340vh;
+    left: 0;
+    margin-left: 0;
+    padding: 0;
+  }
+  .projects_container{
+    padding: 1rem .5rem;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  .projects{
+    padding: 1rem 0.5rem;
+  }
+  .projects p:nth-child(1){
+    font-size: 20px;
+  }
+  .projects p:nth-child(2){
+    padding: 1rem;
+    line-height: 25px;
+    color: rgba(254, 254, 254, .8);
+  }
+  .tags{
+    padding: 0 1rem;
+  }
+  .tags span{
+    font-size: 10px;
+    padding: .5rem;
+  }
+
+  .tags span:hover{
+    letter-spacing: normal;
+    background-color: #05fb05;
+    color: white;
+  }
+  .more{
+    left: 10%;
     width: 80%;
   }
-  .between p{
-    font-size: 10px;
+  .projects p:nth-child(1)::after{
+  content: '';
+  position: absolute;
+  left: 3%;
+  top: 100%;
+  width: 90%;
+  height: 1px;
+  background-color: #05fb05;
   }
+  .experience{
+    left: 0;
+    top: 600vh;
+    padding: 0;
+  }
+  .exp{
+  width: 90%;
+  padding: 1rem 0;
+  margin-left: 16%;
+  line-height: 2rem;
+  
+}
+  .experience .meTag{
+    font-size: 20px;
+  }
+.title{
+  font-size: 15px;
+  padding: 0rem;
+  letter-spacing: 0;
+  line-height: 2rem;
+}
+.company{
+  flex-direction: column;
+  padding: 0;
+}
+.company p:nth-child(1),
+.company p:nth-child(2){
+  font-size: 15px;
+}
+.desc{
+  font-size: 12px;
+  padding: 1rem;
+  
+}
 }
