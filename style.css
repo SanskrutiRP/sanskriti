@@ -15,7 +15,7 @@ body{
   width: 30%;
   height: 40%;
   padding: 1rem 2rem;
-  border: 1px solid rgba(244, 244, 244, .7);
+  /*border: 1px solid rgba(244, 244, 244, .7);*/
   background: black;
   z-index: 10;
   box-shadow: 0px 5px 5px rgba(244, 244, 244, .2), 5px 5px 10px rgba(244, 244, 244, .2);
@@ -786,10 +786,19 @@ ul{
 @media(max-width : 480px){
   .container{
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: 100%;
     width: 100vw;
     padding: 0;
   }
+  /*.me,
+  .abut,
+  .skills,
+  .project,
+  .experience{
+    position: relative;
+  }*/
   .modal{
     width: 60%;
     left: 15%;
@@ -863,7 +872,7 @@ ul{
   }
   .skills{
     left: 0;
-    top: 240vh;
+    top: 230vh;
     width: 80vw;
     margin-left: 14%;
     padding: 0;
@@ -920,9 +929,9 @@ ul{
     transform: scale(.5);
   }
   .project{
-    top: 340vh;
+    top: 330vh;
     left: 0;
-    margin-left: 0;
+    margin-left: 1%;
     padding: 0;
   }
   .projects_container{
